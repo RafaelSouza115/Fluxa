@@ -1,0 +1,140 @@
+/*
+ * ProductPreview.module.css - Estilos do preview do produto.
+ * Dashboard com KPIs, gráfico simples em CSS e lista de transações.
+ * Todos os estilos usam variáveis CSS do :root.
+*/
+
+.section {
+  padding-top: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading–secondary {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heading–secondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.kpi {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.kpi:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kpiLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.25rem;
+}
+
+.kpiValue {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.kpiValue--destacado {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.grafico {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.grafico h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.graficoSvg {
+  width: 100%;
+  height: 100;
+}
+
+.grafico line {
+  stroke: var(--color-text-light);
+  stroke-width: 2;
+}
+
+.transacoesList {
+  margin-top: 2rem;
+}
+
+.transacoesList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-bg-subtle);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+}
+
+.transacoesList .desc {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.transacoesList .tipoTipo {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.transacoesList .valor {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}

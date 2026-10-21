@@ -1,0 +1,96 @@
+/*
+ * Faq.module.css - Estilos do FAQ.
+ * Layout de perguntas expansíveis com buttons de acesso (aria-expanded).
+*/
+
+.section {
+  padding-top: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading–secondary {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heading–secondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.faq {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: white;
+  box-shadow: var(--box-shadow);
+}
+
+.faqButton {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.faqButton:hover {
+  color: var(--color-primary);
+}
+
+.faqButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.faqContent {
+  padding: 0 1.25rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faqContent.open {
+  max-height: 200px;
+}
+
+.faqContent p {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .faqButton {
+    padding: 0.875rem 1rem;
+  }
+  .faqContent {
+    padding: 0 1rem;
+  }
+}

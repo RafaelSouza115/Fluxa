@@ -1,0 +1,68 @@
+/*
+ * Footer.module.css - Estilos do rodapé.
+ * Layout do footer com navegação e copyright.
+*/
+
+.footer {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 2rem 1.5rem;
+  margin-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footerLeft {
+  margin-bottom: 1.5rem;
+}
+
+.footerLeft span {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.footerDesc {
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.footerNav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.footerNav a {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  transition: var(--transition);
+}
+
+.footerNav a:hover {
+  color: var(--color-primary);
+}
+
+.footerRight {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .footerNav {
+    gap: 1rem;
+  }
+  .footerNav a {
+    font-size: 0.75rem;
+  }
+}

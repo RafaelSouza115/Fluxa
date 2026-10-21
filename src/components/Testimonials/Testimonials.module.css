@@ -1,0 +1,90 @@
+/*
+ * Testimonials.module.css - Estilos dos depoimentos.
+ * Layout em grid de cartas com citações e autores identificados como fictícios.
+*/
+
+.section {
+  padding-top: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading–secondary {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heading–secondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+.testimonial::before {
+  content: '\"';
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  font-size: 3rem;
+  color: var(--color-primary-light);
+  line-height: 1;
+  font-family: serif;
+}
+
+.testimonial .texto {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.testimonial .author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testimonial .nome {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.testimonial .ficticio {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 1rem;
+  }
+  .testimonial {
+    padding: 1.25rem;
+  }
+}

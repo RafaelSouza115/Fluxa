@@ -1,0 +1,54 @@
+/*
+ * Header.module.css - Estilos do cabeçalho.
+ * Estilização do logotipo, navegação e botão de tema.
+*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-bg-subtle);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav a {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .nav ul {
+    display: none;
+  }
+  .actions {
+    margin-left: 1rem;
+  }
+}

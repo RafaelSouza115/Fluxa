@@ -1,0 +1,122 @@
+/*
+ * Pricing.module.css - Estilos de planos e preços.
+ * Layout lado a lado de plano Grátis e Pro conceitual.
+*/
+
+.section {
+  padding-top: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading–secondary {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heading–secondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.plan {
+  background: white;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.plan:hover {
+  border-color: var(--color-primary-dark);
+  transform: translateY(-4px);
+}
+
+.plan--pro {
+  background: var(--color-primary);
+  color: white;
+}
+
+.plan--pro .planHeader .planName,
+.plan--pro .planPrice,
+.plan--pro .planList li,
+.plan--pro .planNote {
+  color: white;
+}
+
+.planHeader {
+  margin-bottom: 1.5rem;
+}
+
+.planName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.planTag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.planPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.planPrice span {
+  font-size: 0.875rem;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.planList {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.planList li {
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.planList li:last-child {
+  margin-bottom: 0;
+}
+
+.planNote {
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}

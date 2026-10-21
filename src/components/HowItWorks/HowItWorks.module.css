@@ -1,0 +1,75 @@
+/*
+ * HowItWorks.module.css - Estilos de "Como funciona".
+ * Layout de 3 passos numerados com linhas conectivas.
+*/
+
+.section {
+  padding-top: 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.heading–secondary {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.heading–secondary::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 0.25rem;
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.step {
+  text-align: center;
+  flex: 1;
+}
+
+.number {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 auto 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.line {
+  flex: 1;
+  height: 2px;
+  background: var(--color-bg-subtle);
+  position: relative;
+  z-index: 1;
+  margin: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .line {
+    display: none;
+  }
+}
