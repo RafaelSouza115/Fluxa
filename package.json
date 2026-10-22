@@ -1,7 +1,7 @@
 {
   "name": "fluxa",
   "version": "1.0.0",
-  "description": "> **Status:** planejamento inicial. Este README é um documento vivo e será atualizado conforme o projeto for desenvolvido.",
+  "description": "Landing page acadêmica do produto financeiro Fluxa - organizador pessoal no ritmo da vida, com demonstração financeira client-side, temas claro/escuro e exportação .xlsx",
   "main": "index.js",
   "scripts": {
     "dev": "vite",

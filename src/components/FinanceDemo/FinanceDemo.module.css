@@ -13,13 +13,13 @@
   padding: 0 1rem;
 }
 
-.heading–secondary {
+.heading-secondary {
   text-align: center;
   margin-bottom: 2rem;
   position: relative;
 }
 
-.heading–secondary::after {
+.heading-secondary::after {
   content: '';
   position: absolute;
   bottom: -0.75rem;
@@ -124,7 +124,12 @@ select {
   color: var(--color-text);
 }
 
-.indicador--saldo .valor {
+.valor-saldo {
+  color: var(--color-primary);
+  font-size: 1.75rem;
+}
+
+.indicador-saldo .valor {
   color: var(--color-primary);
   font-size: 1.75rem;
 }
@@ -180,7 +185,7 @@ select {
   padding: 0.25rem;
 }
 
-.btn--secundario {
+.btn-secundario {
   width: auto;
   margin-top: 0;
 }

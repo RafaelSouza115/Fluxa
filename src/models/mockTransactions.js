@@ -3,18 +3,9 @@
  * Transações de exemplo para o dashboard demonstrativo.
  * Identificadas como exemplos para o exercício acadêmico.
  * Este módulo pode ser importado separadamente ou via financeModel.js.
-*/
+ */
 
-export type Transaction = {
-  id: string
-  descricao: string
-  categoria: string
-  tipo: 'entrada' | 'saida'
-  valor: number
-  data: string
-}
-
-export const mockTransactions: Transaction[] = [
+const mockTransactions = [
   {
     id: 'tx-1',
     descricao: 'Salário mensal',
@@ -56,3 +47,5 @@ export const mockTransactions: Transaction[] = [
     data: '2026-10-05',
   },
 ]
+
+export { mockTransactions }

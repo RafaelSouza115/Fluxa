@@ -9,7 +9,7 @@ export default function HowItWorks() {
   return (
     <section id="como" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading–secondary}>Como funciona</h2>
+        <h2 className={styles.heading-secondary}>Como funciona</h2>
         <div className={styles.steps}>
           <div className={styles.step}>
             <div className={styles.number}>1</div>

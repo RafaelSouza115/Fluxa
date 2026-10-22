@@ -3,22 +3,21 @@
  * Responsável por: persistência no localStorage, detecção de prefers-color-scheme,
  * e fornecimento de funções de alternância para a interface.
  * Esta camada separa a lógica de tema da componente visual.
-*/
+ */
 
 import { useState, useEffect, useCallback } from 'react'
-
-export type Theme = 'light' | 'dark'
 
 const THEME_KEY = 'fluxa-theme'
 
 // Verifica o tema salvo ou o preference do sistema
-const storedTheme = localStorage.getItem(THEME_KEY)
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+const storedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem(THEME_KEY) : null
+const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
-const initialTheme: Theme = storedTheme ? (storedTheme === 'dark' ? 'dark' : 'light') : prefersDark ? 'dark' : 'light'
+// Lógica: primeiro verifica localStorage, depois o preference do sistema
+const initialTheme = storedTheme ? (storedTheme === 'dark' ? 'dark' : 'light') : prefersDark ? 'dark' : 'light'
 
-export function useThemeViewModel(initialTheme: Theme = 'light'): [Theme, () => void, () => void] {
-  const [theme, setTheme] = useState<Theme>(initialTheme)
+export function useThemeViewModel(initialTheme = 'light') {
+  const [theme, setTheme] = useState(initialTheme)
 
   // Aplica o tema no elemento <html>
   useEffect(() => {
@@ -28,7 +27,11 @@ export function useThemeViewModel(initialTheme: Theme = 'light'): [Theme, () => 
     } else {
       root.classList.remove('dark-theme')
     }
-    localStorage.setItem(THEME_KEY, theme)
+    try {
+      localStorage.setItem(THEME_KEY, theme)
+    } catch (e) {
+      console.warn('Não foi possível salvar o tema no localStorage', e)
+    }
   }, [theme])
 
   // Alterar para modo escuro

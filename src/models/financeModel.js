@@ -3,28 +3,28 @@
  * Este módulo encapsula a lógica de cálculo de entradas, saídas e saldo,
  * bem como validação de transações. Não tem dependência de DOM ou browser APIs
  * (exceto quando chamado do ViewModel que usa localStorage).
-*/
+ */
 
 /**
  * Estrutura de uma transação:
  * { id, descricao, categoria, tipo, valor, data }
  * tipo: 'entrada' | 'saida'
-*/
+ */
 
-export type Transaction = {
-  id: string
-  descricao: string
-  categoria: string
-  tipo: 'entrada' | 'saida'
-  valor: number
-  data: string
+const Transaction = {
+  id: '',
+  descricao: '',
+  categoria: '',
+  tipo: '',
+  valor: 0,
+  data: '',
 }
 
 /**
  * Calcula o saldo total a partir de um array de transações.
  * Saldo = soma das entradas - soma das saídas.
-*/
-export function calcularSaldo(transacoes: Transaction[]): number {
+ */
+function calcularSaldo(transacoes) {
   let entradas = 0
   let saidas = 0
   for (const t of transacoes) {
@@ -39,8 +39,8 @@ export function calcularSaldo(transacoes: Transaction[]): number {
 
 /**
  * Calcula o total de entradas.
-*/
-export function totalEntradas(transacoes: Transaction[]): number {
+ */
+function totalEntradas(transacoes) {
   let soma = 0
   for (const t of transacoes) {
     if (t.tipo === 'entrada') {
@@ -52,8 +52,8 @@ export function totalEntradas(transacoes: Transaction[]): number {
 
 /**
  * Calcula o total de saídas.
-*/
-export function totalSaidas(transacoes: Transaction[]): number {
+ */
+function totalSaidas(transacoes) {
   let soma = 0
   for (const t of transacoes) {
     if (t.tipo === 'saida') {
@@ -66,14 +66,9 @@ export function totalSaidas(transacoes: Transaction[]): number {
 /**
  * Valida se uma transação tem todos os campos preenchidos corretamente.
  * Retorna objeto com { válido: boolean, erros: string[] }
-*/
-export function validarTransacao(
-  descricao: string,
-  tipo: 'entrada' | 'saida',
-  valor: number,
-  categoria: string
-): { válido: boolean; erros: string[] } {
-  const erros: string[] = []
+ */
+function validarTransacao(descricao, tipo, valor, categoria) {
+  const erros = []
 
   if (!descricao || descricao.trim().length === 0) {
     erros.push('Descrição é obrigatória.')
@@ -100,7 +95,7 @@ export function validarTransacao(
 /**
  * Formata um valor em reais usando Intl.NumberFormat.
  */
-export function formatarReal(valor: number): string {
+function formatarReal(valor) {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -108,21 +103,29 @@ export function formatarReal(valor: number): string {
 }
 
 /**
- * Gera um ID único (simple counter-based para o demonstrador).
+ * Gera um ID único usando crypto quando disponível, com fallback para o counter.
  */
-let ultimoId = 0
-export function gerarId(): string {
+function gerarId() {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return 'tx-' + crypto.randomUUID().substring(0, 8)
+  }
+  let ultimoId = 0
   ultimoId += 1
-  return `tx-${ultimoId}`
+  return 'tx-' + ultimoId
 }
 
 /*
  * mockTransactions.js - Model: exemplos fictícios iniciais.
  * Fornece algumas transações pré-cadasptas para a demonstração inicial.
  * Identificadas claramente como exemplos para o exercício acadêmico.
-*/
+ */
 
-export const mockTransactions: Transaction[] = [
+/**
+ * Transações de exemplo para o dashboard demonstrativo.
+ * Identificadas como exemplos para o exercício acadêmico.
+ */
+
+const mockTransactions = [
   {
     id: 'tx-1',
     descricao: 'Salário mensal',
@@ -164,3 +167,13 @@ export const mockTransactions: Transaction[] = [
     data: '2026-10-05',
   },
 ]
+
+export {
+  calcularSaldo,
+  totalEntradas,
+  totalSaidas,
+  validarTransacao,
+  formatarReal,
+  gerarId,
+  mockTransactions,
+}

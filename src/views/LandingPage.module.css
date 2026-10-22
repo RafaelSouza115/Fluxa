@@ -27,7 +27,7 @@
   line-height: 1.2;
 }
 
-.heading–secondary {
+.heading-secondary {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -90,7 +90,7 @@
   .heading–primary {
     font-size: 2rem;
   }
-  .heading–secondary {
+  .heading-secondary {
     font-size: 1.5rem;
   }
   .section {

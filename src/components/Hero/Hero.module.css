@@ -8,6 +8,10 @@
   padding-top: 80px; /* espaço para header fixo */
 }
 
+.section-height {
+  min-height: 80vh;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -22,7 +26,7 @@
   color: var(--color-text);
 }
 
-.heading–secondary {
+.heading-secondary {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -40,7 +44,7 @@
   .heading–primary {
     font-size: 2rem;
   }
-  .heading–secondary {
+  .heading-secondary {
     font-size: 1.5rem;
   }
 }

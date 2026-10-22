@@ -13,13 +13,13 @@
   padding: 0 1rem;
 }
 
-.heading–secondary {
+.heading-secondary {
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
 }
 
-.heading–secondary::after {
+.heading-secondary::after {
   content: '';
   position: absolute;
   bottom: -0.75rem;
@@ -52,15 +52,15 @@
   transform: translateY(-4px);
 }
 
-.plan--pro {
+.plan-pro {
   background: var(--color-primary);
   color: white;
 }
 
-.plan--pro .planHeader .planName,
-.plan--pro .planPrice,
-.plan--pro .planList li,
-.plan--pro .planNote {
+.plan-pro .planHeader .planName,
+.plan-pro .planPrice,
+.plan-pro .planList li,
+.plan-pro .planNote {
   color: white;
 }
 

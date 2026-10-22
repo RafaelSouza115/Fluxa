@@ -1,9 +1,9 @@
 /*
  * Testimonials.jsx - Prova social com depoimentos.
  * Apresenta 2 ou 3 depoimentos explicitamente identificados como fictícios,
-   pois é um exercício acadêmico. Cada depoimento tem o nome, perfil e
-   texto comentado.
-*/
+ * pois é um exercício acadêmico. Cada depoimento tem o nome, perfil e
+ * texto comentado.
+ */
 
 import styles from './Testimonials.module.css'
 
@@ -11,7 +11,7 @@ export default function Testimonials() {
   return (
     <section id="depoimentos" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading–secondary}>Prova Social</h2>
+        <h2 className={styles.heading-secondary}>Prova Social</h2>
         <div className={styles.grid}>
           <article className={styles.testimonial}>
             <p className={styles.texto}>

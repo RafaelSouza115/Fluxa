@@ -14,13 +14,13 @@
   padding: 0 1rem;
 }
 
-.heading–secondary {
+.heading-secondary {
   text-align: center;
   margin-bottom: 2.5rem;
   position: relative;
 }
 
-.heading–secondary::after {
+.heading-secondary::after {
   content: '';
   position: absolute;
   bottom: -0.75rem;
@@ -71,7 +71,7 @@
   color: var(--color-text);
 }
 
-.kpiValue--destacado {
+.kpiValue-destacado {
   font-size: 2rem;
   font-weight: 700;
   color: var(--color-primary);

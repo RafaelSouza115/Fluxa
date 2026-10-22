@@ -11,7 +11,7 @@ export default function Benefits() {
   return (
     <section id="beneficios" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading–secondary}>Benefícios</h2>
+        <h2 className={styles.heading-secondary}>Benefícios</h2>
         <div className={styles.grid}>
           <article className={styles.card}>
             <div className={styles.icon} />

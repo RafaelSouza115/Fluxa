@@ -7,12 +7,7 @@
 
 import styles from './Header.module.css'
 
-interface HeaderProps {
-  theme: string
-  alternar: () => void
-}
-
-export default function Header({ theme, alternar }: HeaderProps) {
+export default function Header({ theme, alternar }) {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>

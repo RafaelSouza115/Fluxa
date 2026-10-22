@@ -3,20 +3,14 @@
  * Formulário de transação, listagem, exclusão, indicadores em tempo real,
  * e botão Exportar Excel. Dados persistidos em localStorage.
  * Inicia com transações fictícias exemplos.
-*/
+ */
 
 import { useState } from 'react'
 import { useFinanceViewModel } from '../../viewmodels/useFinanceViewModel'
 import { useThemeViewModel } from '../../viewmodels/useThemeViewModel'
 import styles from './FinanceDemo.module.css'
 
-interface FinanceDemoProps {
-  fecharDemo: () => void
-  theme: string
-  alternar: () => void
-}
-
-export default function FinanceDemo({ fecharDemo, theme, alternar }: FinanceDemoProps) {
+export default function FinanceDemo({ fecharDemo, theme, alternar }) {
   const { state, actions } = useFinanceViewModel()
   const [themeLocal, , , alternarLocal] = useThemeViewModel(theme)
   const [showExamples, setShowExamples] = useState(true)
@@ -46,7 +40,7 @@ export default function FinanceDemo({ fecharDemo, theme, alternar }: FinanceDemo
     }
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (id) => {
     removerTransacao(id)
   }
 
@@ -63,7 +57,7 @@ export default function FinanceDemo({ fecharDemo, theme, alternar }: FinanceDemo
   return (
     <section id="demo" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading–secondary}>
+        <h2 className={styles.heading-secondary}>
           <span>{themeLocal === 'dark' ? 'Experimente' : 'Teste'} o Fluxa</span>
         </h2>
 
@@ -192,9 +186,9 @@ export default function FinanceDemo({ fecharDemo, theme, alternar }: FinanceDemo
               }).format(totalSaidas)}
             </p>
           </div>
-          <div className={styles.indicador--saldo}>
+          <div className={styles.indicador-saldo}>
             <p className={styles.label}>Saldo</p>
-            <p className={styles.valor--saldo}>
+            <p className={styles.valor-saldo}>
               {new Intl.NumberFormat('pt-BR', {
                 style: 'currency',
                 currency: 'BRL',
@@ -240,14 +234,14 @@ export default function FinanceDemo({ fecharDemo, theme, alternar }: FinanceDemo
         {/* Ações: reset e exportar */}
         <div className={styles.acessoes}>
           <button
-            className={styles.btn--secundario}
+            className={styles.btn-secundario}
             onClick={handleReset}
             aria-label="Reiniciar dados de demonstração"
           >
             Reiniciar dados
           </button>
           <button
-            className={styles.btn--secundario}
+            className={styles.btn-secundario}
             onClick={handleExport}
             aria-label="Exportar para Excel"
           >
