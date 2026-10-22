@@ -18,7 +18,7 @@ export default function ProductPreview() {
   return (
     <section id="produto" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading-secondary}>Dashboard Fluxa</h2>
+        <h2 className={styles["heading-secondary"]}>Dashboard Fluxa</h2>
         <div className={styles.dashboard}>
           <div className={styles.kpis}>
             <div className={styles.kpi}>
@@ -31,7 +31,7 @@ export default function ProductPreview() {
             </div>
             <div className={styles.kpi}>
               <p className={styles.kpiLabel}>Saldo</p>
-              <p className={styles.kpiValue-destacado}>R$ 4.184,50</p>
+              <p className={styles["kpiValue-destacado"]}>R$ 4.184,50</p>
             </div>
           </div>
           <div className={styles.grafico}>

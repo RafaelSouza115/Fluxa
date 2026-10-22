@@ -5,21 +5,24 @@
  * Recebe a função setMostrarDemo do pai para abrir a demonstração.
  */
 
-import styles from './Hero.module.css'
+import styles from "./Hero.module.css";
 
 export default function Hero({ onMostrarDemo }) {
   return (
-    <section id="hero" className={`${styles.section} ${styles['section-height']}`}>
+    <section
+      id="hero"
+      className={`${styles.section} ${styles["section-height"]}`}
+    >
       <div className={styles.container}>
-        <h1 className={styles.heading-primary}>
+        <h1 className={styles["heading-primary"]}>
           Fluxa - Suas finanças no ritmo da sua vida
         </h1>
-        <p className={styles.heading-secondary}>
+        <p className={styles["heading-secondary"]}>
           Organize suas entradas, saídas e saldo em um só lugar
         </p>
-        <p className={styles.text-lead}>
-          Controle suas movimentações financeiras, visualize seu resumo
-          diário e exporte seus dados para planilha Excel com poucos cliques.
+        <p className={styles["text-lead"]}>
+          Controle suas movimentações financeiras, visualize seu resumo diário e
+          exporte seus dados para planilha Excel com poucos cliques.
         </p>
         <div>
           <button
@@ -32,5 +35,5 @@ export default function Hero({ onMostrarDemo }) {
         </div>
       </div>
     </section>
-  )
+  );
 }

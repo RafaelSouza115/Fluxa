@@ -14,7 +14,7 @@ export default function Faq() {
   return (
     <section id="faq" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading-secondary}>Perguntas Frequentes</h2>
+        <h2 className={styles["heading-secondary"]}>Perguntas Frequentes</h2>
         <div className={styles.faq}>
           <div className={styles.faqItem}>
             <button

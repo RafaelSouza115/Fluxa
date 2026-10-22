@@ -10,7 +10,7 @@ export default function Pricing() {
   return (
     <section id="preco" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading-secondary}>Planos</h2>
+        <h2 className={styles["heading-secondary"]}>Planos</h2>
         <div className={styles.plans}>
           <div className={styles.plan}>
             <div className={styles.planHeader}>
@@ -27,7 +27,7 @@ export default function Pricing() {
               Contratar
             </button>
           </div>
-          <div className={styles.plan-pro}>
+          <div className={styles["plan-pro"]}>
             <div className={styles.planHeader}>
               <span className={styles.planName}>Plano Pro</span>
               <span className={styles.planTag}>Conceitual</span>

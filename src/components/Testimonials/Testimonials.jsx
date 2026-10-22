@@ -11,7 +11,7 @@ export default function Testimonials() {
   return (
     <section id="depoimentos" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading-secondary}>Prova Social</h2>
+        <h2 className={styles["heading-secondary"]}>Prova Social</h2>
         <div className={styles.grid}>
           <article className={styles.testimonial}>
             <p className={styles.texto}>

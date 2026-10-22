@@ -1,222 +1,291 @@
-# Fluxa — Landing Page de Produto
+# Fluxa — Suas finanças no ritmo da sua vida
 
-> **Status:** primeira versão gerada pelo OpenCode; teste manual identificou tela vazia e revisão do repositório identificou problemas de inicialização e código. Correções solicitadas e validação funcional pendente. Este README registra a jornada real do projeto.
+> **Atividade 01 — Landing Page de Produto**  
+> **Documentação: V4 | 21/10/2026**  
+> **Situação:** protótipo em desenvolvimento e correção. A página apresentou erros de execução durante os testes locais; a validação completa da V4 ainda está pendente.
+
+**Repositório:** [github.com/RafaelSouza115/Fluxa](https://github.com/RafaelSouza115/Fluxa)
 
 ## Integrantes
 
-- [SEU NOME]
-- [NOME DA DUPLA, SE HOUVER]
+- Rafael Souza
+- [Adicionar integrante, caso o trabalho seja realizado em dupla]
 
 ## Sobre o produto
 
-O **Fluxa** é um produto financeiro **fictício** pensado para facilitar a organização das finanças pessoais. Sua proposta é reunir entradas, saídas, saldo e histórico de movimentações em uma interface simples, com a possibilidade de exportar registros em uma planilha Excel. Além do uso cotidiano, a ideia surgiu da necessidade de organizar informações financeiras para uma atividade acadêmica de sócio.
+O **Fluxa** é um produto financeiro fictício criado para facilitar o acompanhamento das finanças pessoais. A proposta é permitir que uma pessoa registre **entradas e saídas**, acompanhe o **saldo disponível**, visualize um histórico de movimentações e **exporte os registros para Excel**.
 
-**Público-alvo:** estudantes e pessoas que desejam acompanhar suas movimentações financeiras sem precisar lidar com uma planilha manualmente o tempo todo.
+A ideia surgiu de uma necessidade prática: organizar a própria rotina financeira e gerar uma planilha que também possa ser utilizada em uma atividade acadêmica de sócio. O público-alvo são estudantes e pessoas que procuram uma maneira simples de controlar receitas e despesas.
 
-**Proposta de valor:** “Suas finanças no ritmo da sua vida.”
+Em vez de desenvolver um sistema financeiro completo, optamos por uma **landing page de apresentação do produto com uma demonstração interativa**. Essa escolha atende ao objetivo da atividade e permite que o visitante experimente a proposta. Todos os dados são locais ou fictícios: o projeto não possui backend, banco de dados, autenticação, conexão bancária ou pagamentos reais.
 
-**Tipo de entrega:** landing page em React, com uma demonstração interativa pequena e 100% client-side. Não é um aplicativo financeiro comercial.
+### Identidade e proposta de valor
 
-## Jornada de construção
-
-### 1. Ideia inicial
-
-A ideia inicial surgiu da necessidade de acompanhar uma rotina financeira pessoal, registrando receitas e despesas, verificando o saldo e obtendo um arquivo Excel que pudesse ser utilizado também em uma atividade acadêmica de sócio.
-
-Durante o planejamento, consideramos duas possibilidades: desenvolver diretamente um gerenciador financeiro completo ou apresentar esse gerenciador como um produto por meio de uma landing page com uma demonstração reduzida. Escolhemos a **landing page com demonstração**, porque ela atende melhor ao enunciado e ainda permite mostrar, na prática, o diferencial do produto.
-
-O nome de trabalho escolhido foi **Fluxa**. [CONFIRMAR NOME NA VERSÃO FINAL]
-
-### 2. Pesquisa e referências
-
-Durante o planejamento, pesquisamos páginas de produtos de finanças pessoais para observar **como apresentar uma proposta de valor e demonstrar funcionalidades em uma landing page**. A pesquisa serviu como referência de estrutura e UX, sem copiar layouts ou identidade visual.
-
-| Referência pesquisada | O que observamos | O que aproveitamos ou descartamos |
+| Elemento | Escolha | Motivo |
 | --- | --- | --- |
-| [Mobills — site oficial](https://www.mobills.com.br/) e [apresentação de planos](https://www.mobills.com.br/sebraeconnect/) | Mensagem principal objetiva, benefícios apresentados em blocos, prévia das funcionalidades e opção de plano grátis. | Aproveitamos a ideia de seções curtas de benefícios e CTA visível. Não copiamos a marca, cores nem funcionalidades de integração bancária. |
-| [Organizze — página do produto](https://www.organizze.com.br/app-de-financas/) | Combinação de chamada principal, representações do painel, explicação de funcionamento, preços e perguntas frequentes. | Aproveitamos a organização da jornada de leitura (problema → solução → demonstração → oferta → FAQ). Não incorporamos conexão bancária, por estar fora do escopo. |
+| Nome | **Fluxa** | Referência ao fluxo de dinheiro e às movimentações do dia a dia. |
+| Frase principal | **“Suas finanças no ritmo da sua vida.”** | Comunicar praticidade e organização. |
+| Cor principal | Vermelho `#D7193F` | Criar uma identidade marcante, conforme a ideia inicial. |
+| Fonte | Montserrat | Priorizar legibilidade e um visual moderno. |
+| Aparência | Modos claro e escuro | Permitir diferentes preferências de visualização. |
+| CTA principal | **Testar demonstração** | Fazer o visitante conhecer o produto por meio de uma interação real. |
 
-**A validar durante a implementação:** se essas referências permanecem úteis após os primeiros testes de responsividade e navegabilidade.
+## Funcionalidades e seções da landing page
 
-### 3. Ferramentas utilizadas
+O escopo definido para o protótipo inclui:
 
-**Ferramentas já utilizadas ou relatadas nesta etapa:**
-- **ChatGPT (GPT-6):** planejamento, definição do escopo e da arquitetura, estruturação do prompt inicial e registro da jornada.
-- **OpenCode:** geração inicial da implementação a partir do prompt, conforme resumo fornecido pela ferramenta.
-- **React + Vite (JavaScript/JSX):** base da aplicação, segundo o retorno do OpenCode.
-- **CSS Modules:** estilos específicos dos componentes e da página, segundo o retorno do OpenCode.
-- **`localStorage`:** armazenamento das movimentações e da preferência visual no navegador, segundo o retorno do OpenCode.
-- **Biblioteca `xlsx`:** exportação de uma planilha real, segundo o retorno do OpenCode.
+- **Header:** identidade da marca, navegação e alternância de tema.
+- **Hero:** nome, proposta de valor e CTA principal.
+- **Benefícios e diferenciais:** organização, acompanhamento do saldo, simplicidade e exportação.
+- **Prévia do produto:** representação visual de um painel financeiro com indicadores e movimentações fictícias.
+- **Como funciona:** apresentação do processo de registrar, acompanhar e exportar.
+- **Prova social:** avaliações fictícias, identificadas como tal.
+- **Oferta:** planos ilustrativos Grátis (R$ 0) e Pro (R$ 12,90/mês), sem compra real.
+- **FAQ:** respostas para dúvidas sobre o produto.
+- **Demonstração financeira:** inclusão de entradas e saídas, exibição de totais e saldo, histórico e exportação `.xlsx`.
+- **Footer:** informações finais e navegação complementar.
 
-**Ferramentas cuja utilização ainda precisa ser confirmada:**
-- Editor utilizado (VS Code, outro editor ou somente OpenCode): [PREENCHER]
-- Figma: [NÃO UTILIZADO / USADO PARA ...]
+A demonstração foi planejada para funcionar **100% no navegador**, com `localStorage` para manter os dados entre atualizações e a biblioteca `xlsx` para gerar uma planilha com as abas **Movimentações** e **Resumo**. Essas funcionalidades fazem parte da implementação proposta; sua verificação final deve ocorrer nos testes descritos ao fim deste documento.
 
-> Os recursos informados pelo OpenCode precisam ser conferidos no código e no navegador antes da entrega. Não declarar uso de ferramentas que não foram efetivamente usadas.
+## Arquitetura escolhida: MVVM
 
-### 4. Uso de IA
+Escolhemos **MVVM (Model–View–ViewModel)**, uma das arquiteturas permitidas na atividade, para separar regras financeiras, controle de estado e interface.
 
-**Modelo utilizado na etapa de planejamento:**
-- **ChatGPT (GPT-6)** — utilizado para organizar requisitos da atividade, definir um recorte viável, sugerir a arquitetura MVVM, propor a identidade inicial e estruturar o prompt do OpenCode.
+```text
+src/
+├── app/
+│   └── App.jsx
+├── models/
+│   ├── financeModel.js
+│   └── mockTransactions.js
+├── viewmodels/
+│   ├── useFinanceViewModel.js
+│   └── useThemeViewModel.js
+├── views/
+│   ├── LandingPage.jsx
+│   └── LandingPage.module.css
+└── components/
+    └── [Componentes da landing page com JSX e CSS Modules]
+```
 
-**Como as sugestões foram avaliadas:**
-- **Mantida:** ideia do próprio estudante de criar um produto voltado ao acompanhamento financeiro e à exportação para Excel.
-- **Mantidas:** preferência definida pelo estudante por vermelho como cor principal, fonte Montserrat e temas claro/escuro.
-- **Decisão tomada durante o planejamento:** limitar o produto a uma landing page com uma demonstração funcional, em vez de tentar entregar uma plataforma financeira completa.
-- **A validar:** nome “Fluxa”, tom exato de vermelho, disposição final das seções e formato exigido pela atividade acadêmica para exportação.
+- **Model:** contém estruturas de dados, validações e cálculos financeiros, sem depender dos componentes visuais.
+- **ViewModel:** utiliza hooks React para administrar estado, interações, persistência e ações da demonstração.
+- **View:** apresenta os dados e recebe interações nos componentes da landing page.
 
-**Primeira geração realizada no OpenCode (21/10/2026):**
-- O prompt criado no planejamento foi enviado ao OpenCode para gerar a aplicação.
-- O OpenCode **relatou** ter criado as camadas `models`, `viewmodels` e `views`, além dos componentes visuais, estilos modularizados e funcionalidades de demonstração.
-- A ferramenta informou ter implementado navegação por âncoras, formulário de movimentações, cálculo de entradas/saídas/saldo, armazenamento local, exportação `.xlsx` e alternância de tema.
-- O OpenCode também **informou** que `npm run build` foi executado com sucesso. Esse resultado ainda não foi reproduzido e conferido manualmente pela dupla.
+Optamos por essa divisão porque permite corrigir e evoluir cada responsabilidade sem transformar a landing page em um único componente grande. **CSS Modules** foi escolhido para isolar os estilos dos componentes, conforme exigido pela atividade.
 
-**Sugestões da IA incorporadas à primeira versão, sujeitas à revisão:**
-- Separação MVVM em regras de negócio, estado e apresentação.
-- Duas ofertas ilustrativas: Grátis (R$ 0) e Pro (R$ 12,90/mês); os preços são fictícios e não há fluxo de compra.
-- Uso de depoimentos claramente fictícios, prévia de dashboard e FAQ expansível.
-- Exportação de dados em duas abas: “Movimentações” e “Resumo”.
+---
 
-**Próximos registros necessários:**
-- Modelo de IA selecionado dentro do OpenCode: [PREENCHER — OpenCode é a ferramenta, não necessariamente o nome do modelo]
-- Por que esse modelo foi escolhido: [PREENCHER]
-- Quais funcionalidades foram efetivamente testadas e aprovadas: [PREENCHER]
-- Problemas encontrados ao rodar ou navegar no projeto e correções feitas: [PREENCHER]
-- Sugestões mantidas, alteradas ou descartadas após a revisão visual: [PREENCHER]
-- Eventuais trocas de modelo, com motivos reais: [PREENCHER]
+# Jornada de construção
 
-### 5. Evolução da solução
+## 1. Ideia inicial
 
-**Versão 0 — planejamento e pesquisa (21/10/2026)**
+Inicialmente, a intenção era criar um produto de organização financeira pessoal que acompanhasse entradas, despesas e saldo, além de gerar um Excel para outra atividade acadêmica. Ao analisar o enunciado, percebemos que o foco da entrega não era um sistema financeiro completo, mas sim **apresentar e vender a ideia de um produto por meio de uma landing page**.
 
-- Conceito inicial: acompanhar entradas, despesas e saldo e gerar um arquivo Excel.
-- Recorte para o trabalho: landing page navegável com uma demonstração client-side.
-- Identidade visual inicial: vermelho, Montserrat e modo claro/escuro.
-- Arquitetura escolhida: **MVVM**, para separar regras financeiras, estado da interface e elementos visuais.
-- Tecnologia definida: React + CSS Modules.
-- CTA principal planejado: **“Testar demonstração”**, levando a um formulário simples de movimentações.
-- Diferencial a representar: exportação `.xlsx` gerada no navegador, sem backend.
-- Referências pesquisadas: páginas do Mobills e Organizze para estruturação dos blocos da landing page; optamos por não reproduzir identidades visuais ou integrações bancárias.
+Consideramos, portanto, duas alternativas: criar um gerenciador financeiro completo ou criar uma página comercial com uma pequena demonstração. Escolhemos a segunda, porque oferece uma experiência navegável, permite demonstrar o diferencial da exportação e mantém o escopo compatível com React client-side e dados mockados.
 
-**Versão 1 — primeira geração pelo OpenCode (21/10/2026)**
+A identidade visual também foi definida desde o início: vermelho como cor principal, Montserrat e alternância entre modo claro e escuro.
 
-A partir do planejamento e do prompt elaborado, foi solicitada ao OpenCode a geração de uma primeira versão do Fluxa. Conforme o resumo produzido pela ferramenta, a implementação inicial preservou as principais decisões: React, CSS Modules, arquitetura MVVM, vermelho `#D7193F`, fonte Montserrat e temas claro/escuro.
+## 2. Pesquisa e referências
 
-Nessa primeira versão, o OpenCode relatou ter criado:
-- Seções de apresentação do produto (hero, benefícios, prévia, funcionamento, depoimentos, preços e FAQ);
-- CTA “Testar demonstração” com navegação para a área interativa;
-- Formulário de movimentações com validações e indicadores atualizados automaticamente;
-- Persistência local, restauração dos dados de exemplo e exportação real de `.xlsx` com duas abas;
-- Layout responsivo e alternância de tema com persistência.
+Pesquisamos como serviços de organização financeira apresentam seus benefícios e conduzem o visitante até uma ação.
 
-**Decisão nesta etapa:** manter a primeira implementação como base para avaliação, em vez de presumir que um código gerado pela IA já está pronto para entrega. A validação do funcionamento e possíveis ajustes visuais ocorrerão na próxima etapa.
+| Referência | O que observamos | Como influenciou o Fluxa |
+| --- | --- | --- |
+| [Mobills](https://www.mobills.com.br/) | Proposta de valor objetiva, blocos de benefícios e chamadas para ação. | Influenciou a apresentação rápida das vantagens e a visibilidade do CTA. |
+| [Organizze](https://www.organizze.com.br/app-de-financas/) | Demonstrações visuais, explicações de funcionamento, ofertas e perguntas frequentes. | Ajudou a pensar na sequência de seções da landing page. |
 
-**Erros, tentativas e aprendizados:** o OpenCode não relatou erros de build em seu resumo. Isso **não comprova** que a experiência está livre de problemas; os testes manuais e a revisão dos arquivos ainda são necessários. [ACRESCENTAR PROBLEMAS REAIS QUANDO APARECEREM]
+Utilizamos essas páginas como **referências de estrutura e experiência**, sem reproduzir sua identidade visual. Decidimos também **não incluir integrações com bancos**, pois isso extrapolaria o escopo client-side da atividade.
 
-**Próximas melhorias em avaliação:** conferir a experiência mobile, qualidade do tema escuro, clareza dos textos comerciais, funcionamento dos CTAs, validade da planilha exportada e organização das responsabilidades MVVM.
+## 3. Ferramentas utilizadas
 
-**Versão 1.2 — correções de build e funcionalidades (21/10/2026)**
+| Ferramenta/tecnologia | Utilização |
+| --- | --- |
+| **React** | Construção dos componentes e da interface interativa. |
+| **Vite** | Ambiente de desenvolvimento e compilação. |
+| **JavaScript e JSX** | Lógica e estrutura da aplicação. |
+| **CSS Modules** | Estilos organizados por componente. |
+| **Montserrat** | Tipografia da identidade visual. |
+| **localStorage** | Persistência local de movimentações e preferência de tema, conforme implementação proposta. |
+| **xlsx** | Exportação de planilha Excel pelo navegador. |
+| **Git e GitHub** | Versionamento e entrega do projeto. |
+| **ChatGPT (GPT-6)** | Planejamento, elaboração de prompts, revisão do código, análise do console e documentação da jornada. |
+| **OpenCode** | Geração da primeira implementação e execução das solicitações de correção. |
 
-Após a primeira geração, foi identificado que o `npm run build` falhava devido a:
+**Editor usado no desenvolvimento:** [confirmar se foi VS Code ou outro].  
+**Figma ou outras ferramentas visuais:** [informar apenas se foram realmente utilizadas].
 
-- Class names with en-dash characters (`–`) causando erros no esbuild em JSX; substituídos por hífen simples (`-`)
-- Anotações de TypeScript em arquivos `.jsx` (ex: `(id: string)`) removidas
-- Importação do XLSX usada sem `import * as XLSX from 'xlsx'` em aplicação ESM; corrigida
-- Geração de IDs `gerarId()` usando contador sequencial em vez de `crypto.randomUUID()`; corrigida
-- Tema claro/escuro: `prefers-color-scheme` media query no CSS harmonizada com classe `.dark-theme` gerenciada pelo ViewModel
-- `index.html` já incluía script type="module", mas cobrança de crackear o entrypoint real
-- Componentes import/export e caminhos validados e corrigidos ao longo de todos os arquivos
-- `.gitignore` criado/atualizado e `node_modules/`/`dist/` removidos do índice do Git
+## 4. Uso de inteligência artificial
 
-**Correções aplicadas:**
+Utilizamos IA como apoio durante a criação, mas as decisões de produto partiram do objetivo da atividade e das preferências definidas para o Fluxa.
 
-1. **Build:** `npm run build` agora termina sem erros (56 módulos transformados)
-2. **Renderização:** `npm run dev` inicia e a aplicação carrega todo o conteúdo (hero, benefícios, preview, como funciona, depoimentos, preços, FAQ, rodapé e demonstração)
-3. **Tela vazia:** Corrigida ao garantir entrypoint React correto em index.html e imports válidos em main.jsx e App.jsx
-4. **TypeScript em JS:** Removidas anotações TypeScript inválidas de arquivos .js e .jsx; projeto permanece em JavaScript/JSX
-5. **Imports:** Todos os caminhos de importação verificados e corrigidos entre componentes, views e viewmodels
-6. **Excel export:** Agora usa `import * as XLSX from 'xlsx'` com `XLSX.writeFile()` para geração client-side de arquivo .xlsx real com duas abas (Movimentações e Resumo)
-7. **IDs únicos:** `gerarId()` agora usa `crypto.randomUUID()` com fallback para counter do Model, evitando colisões com mocks que já têm IDs tx-1, tx-2, etc.
-8. **Tema claro/escuro:** Classe `.dark-theme` no elemento `<html>` controlada pelo ViewModel; CSS global usa variáveis definidas por essa classe em vez de media query `prefers-color-scheme` que poderia entrar em conflito
-9. **localStorage:** Leitura segura envolvida em try/catch; dados corrompidos não impedem a renderização da página; salvamento persists localmente
-10. **Git:** `node_modules/` e `dist/` removidos do índice do Git via `git rm -r --cached`; `.gitignore` atualizado; `package-lock.json` preservado versãoado
+### ChatGPT — planejamento e revisão
 
-**Funcionalidades verificadas:**
+O ChatGPT foi utilizado para interpretar os requisitos da atividade, ajudar a definir um escopo viável, sugerir MVVM, estruturar o prompt enviado ao OpenCode e investigar problemas encontrados durante a execução.
 
-- Hero, benefícios, preview do produto, como funciona, depoimentos fictícios, preços, FAQ e rodapé aparecem corretamente
-- CTA "Testar demonstração" abre a demonstração financeira
-- Formulário de entrada/saída valida os campos; entrada R$ 100,00 + saída R$ 30,00 = saldo R$ 70,00 esperado
-- Registros podem ser removidos e persistem no reload
-- Dados podem ser reiniciados
-- Exportação Excel gera arquivo .xlsx real com abas "Movimentações" e "Resumo" e totais coerentes
-- Alternância claro/escuro muda cores de fato e persiste após recarregar (via localStorage)
-- Nenhum arquivo .js/.jsx contém tipagem TypeScript inválida
-- node_modules/ e dist/ não estão mais rastreados pelo Git
+### OpenCode — implementação
 
-**Próximas melhorias:** conferir responsividade em celular, testar bordas de layout, validar acessibilidade avançada e refinar mensagens de erro do formulário.
+O primeiro prompt solicitou a criação da landing page com React, CSS Modules, identidade vermelha, fonte Montserrat, temas claro/escuro e demonstração financeira. O OpenCode apresentou um resumo das funcionalidades implementadas e informou que o build tinha sido concluído com sucesso.
 
-### 6. Resultado final
+Ao executar a aplicação localmente, entretanto, **a página permaneceu preta/vazia**, mostrando que o relato da ferramenta não substituía testes no navegador. A partir desse resultado, passamos a utilizar prompts menores e direcionados para corrigir problemas específicos, preservando a estrutura já desenvolvida.
 
-**Em avaliação:** a primeira versão foi gerada, mas o teste inicial apresentou tela vazia e a auditoria encontrou erros no código. A landing page ainda precisa ser corrigida, executada, analisada visualmente e testada funcionalmente. Após esses testes, registrar os acertos, limitações e melhorias que seriam realizadas com mais tempo.
+**Modelo de IA selecionado dentro do OpenCode:** [informar o modelo utilizado — OpenCode é a ferramenta, não o nome do modelo].  
+**Troca de modelos:** [registrar apenas se ocorreu; caso contrário, escrever “não houve”].
 
-## Arquitetura escolhida — MVVM
+### Sugestões mantidas, modificadas e não adotadas
 
-- **Model:** dados e regras de negócio, como cadastro/validação de movimentações e cálculo de entradas, saídas e saldo.
-- **ViewModel:** estado da tela e ações que conectam a interface aos dados, incluindo persistência no navegador.
-- **View:** componentes React responsáveis pela apresentação, navegação e interações da landing page.
+- **Mantidas:** MVVM, React, CSS Modules, demonstração client-side, exportação de Excel, dados fictícios e identidade visual escolhida.
+- **Ajustada:** a estratégia de desenvolvimento. Em vez de aceitar a entrega inicial da IA como pronta, adotamos análise do repositório, leitura dos erros do console e correções iterativas.
+- **Corrigidas ou solicitadas para correção:** inicialização do React, incompatibilidades JavaScript/TypeScript, importação da biblioteca Excel e uso de CSS Modules.
+- **Não adotadas no escopo:** backend, autenticação, banco de dados, integração bancária e pagamentos reais.
+- **Em avaliação:** melhorias estéticas, detalhes de responsividade e a clareza de todas as ações da interface.
 
-A arquitetura MVVM foi escolhida por facilitar a separação de responsabilidades sem exigir uma estrutura excessivamente complexa para o escopo da atividade.
+## 5. Evolução da solução — V1 até V4
+
+### V1 — Primeira geração do projeto
+
+**Objetivo:** transformar a ideia inicial em uma landing page navegável com demonstração.
+
+O OpenCode gerou uma estrutura baseada em MVVM, os componentes de apresentação, a demonstração de entradas e saídas, o tema claro/escuro e a proposta de exportação para Excel. O relatório da ferramenta descreveu também validações de formulário, dados de exemplo e persistência local.
+
+**Primeiro teste real:** ao executar o projeto e abrir o endereço local do Vite, a página não mostrou os componentes: permaneceu vazia/preta. Esse foi o primeiro indício de que havia diferenças entre o resultado informado pela IA e o funcionamento observado no navegador.
+
+**Aprendizado:** um projeto compilar ou ser descrito como concluído não significa que consiga renderizar e funcionar corretamente.
+
+### V2 — Revisão da base e problemas estruturais
+
+**Objetivo:** identificar por que a aplicação não iniciava e revisar a implementação sem recomeçá-la.
+
+A inspeção do repositório apontou problemas de inicialização e compatibilidade, incluindo:
+
+- Falta inicial do script que carrega `main.jsx` em `index.html`.
+- Divergência de imports e caminhos de arquivos que precisavam ser conferidos.
+- Sintaxe de TypeScript em arquivos `.js` ou `.jsx`, apesar da configuração em JavaScript/JSX.
+- Uso de `require('xlsx')` em código direcionado ao navegador, em vez de uma importação compatível com módulos ES.
+- Possibilidade de colisões de IDs entre novos registros e dados fictícios.
+- Inconsistências entre a classe usada para o tema escuro e as regras de CSS.
+- Presença inicial de pastas geradas, como `node_modules` e `dist`, no versionamento.
+
+Foi solicitado ao OpenCode que corrigisse esses pontos. Uma revisão posterior indicou que parte dessas alterações aparecia no código, como o script de entrada do React, a existência de `App.jsx` e a importação da biblioteca `xlsx`.
+
+**Decisão:** preservar o conceito, a identidade visual e a arquitetura; corrigir os problemas técnicos de forma incremental.
+
+### V3 — Erros `secondary is not defined`
+
+**Objetivo:** investigar a causa da tela vazia com evidências obtidas diretamente no console do navegador.
+
+O console apresentou o erro:
+
+```text
+Uncaught ReferenceError: secondary is not defined
+```
+
+O mesmo erro ocorreu em componentes como `Hero`, `Benefits`, `ProductPreview`, `HowItWorks`, `Testimonials`, `Pricing` e `Faq`.
+
+Identificamos um padrão de acesso incorreto às classes do CSS Modules. Por exemplo:
+
+```jsx
+// Incorreto: o hífen é interpretado como subtração.
+<h2 className={styles.heading-secondary}>Benefícios</h2>
+
+// Correto: a chave da classe é acessada por uma string.
+<h2 className={styles['heading-secondary']}>Benefícios</h2>
+```
+
+Solicitamos ao OpenCode uma varredura geral dos componentes, inclusive em classes com outros nomes compostos e caracteres de hífen semelhantes. Essa etapa mostrou a importância de ler a mensagem e a linha do erro, em vez de alterar o layout por tentativa e erro.
+
+**Resultado observado:** depois da sequência de correções, o console passou a apontar outro identificador não definido, indicando que ainda existia ao menos mais um acesso incorreto a classes CSS.
+
+### V4 — Erro `destacado is not defined` e revisão dos CSS Modules
+
+**Objetivo:** corrigir os casos restantes e evitar que a página volte a quebrar durante a renderização.
+
+O novo erro apresentado pelo console foi:
+
+```text
+Uncaught ReferenceError: destacado is not defined
+    at ProductPreview (ProductPreview.jsx:34:45)
+```
+
+A investigação localizou uma expressão do mesmo tipo no componente `ProductPreview`:
+
+```jsx
+// Incorreto
+<p className={styles.kpiValue-destacado}>R$ 4.184,50</p>
+
+// Correto
+<p className={styles['kpiValue-destacado']}>R$ 4.184,50</p>
+```
+
+Esse problema não está relacionado ao cálculo financeiro: ele ocorre porque `styles.kpiValue-destacado` é interpretado pelo JavaScript como uma subtração envolvendo a variável inexistente `destacado`.
+
+**O que foi solicitado na V4:**
+
+1. Corrigir o acesso a `kpiValue-destacado`.
+2. Buscar o mesmo padrão em **todos** os componentes JSX e JS, inclusive em expressões condicionais.
+3. Confirmar que os nomes correspondem aos seletores definidos em cada arquivo `.module.css`.
+4. Verificar outros `ReferenceError` e problemas que interrompam a renderização.
+5. Preservar os requisitos da atividade e testar a aplicação no navegador, além de executar o build.
+
+**Situação da V4:** o erro foi identificado e a correção foi especificada. **Ainda não foi confirmado nesta jornada que a última correção foi aplicada e que toda a landing page funciona sem erros.** A finalização depende dos testes manuais abaixo e da publicação do código atualizado.
+
+### Resumo das decisões ao longo das versões
+
+| Etapa | Situação encontrada | Decisão tomada | Aprendizado |
+| --- | --- | --- | --- |
+| V1 | Primeira geração, mas página vazia | Revisar código e execução | Resumo da IA não equivale a teste real. |
+| V2 | Problemas de entrada, imports, sintaxe e integração local | Corrigir sem reescrever | Conferir compatibilidade entre ferramentas e tecnologias. |
+| V3 | `secondary is not defined` em várias seções | Revisar padrão de classes CSS Modules | Um erro de JavaScript pode interromper a interface inteira. |
+| V4 | `destacado is not defined` em `ProductPreview` | Corrigir e procurar todas as ocorrências semelhantes | Correções pontuais devem ser acompanhadas de uma varredura completa. |
+
+## 6. Resultado e avaliação até a V4
+
+O Fluxa evoluiu de uma ideia pessoal de acompanhamento financeiro para um protótipo acadêmico estruturado em React, com uma landing page de produto e uma demonstração financeira planejada. As principais decisões de escopo, arquitetura e identidade visual permaneceram consistentes desde o início.
+
+O maior desafio até a V4 foi a **estabilidade da aplicação**. Houve erros de código gerados ou mantidos nas iterações com IA que impediram o carregamento normal da página. A análise dos erros do console permitiu encontrar causas concretas e orientar correções mais específicas.
+
+**Avaliação atual:** a estrutura e a proposta estão alinhadas ao enunciado, mas o resultado **ainda depende da comprovação de funcionamento em navegador e do teste de todas as interações**. Não consideramos o produto finalizado apenas porque a IA informou que concluiu a implementação.
+
+**Com mais tempo, gostaríamos de:** melhorar detalhes visuais e responsivos, acrescentar testes automatizados para cálculos financeiros e renderização, aperfeiçoar acessibilidade e tornar as mensagens do formulário mais claras — sem fugir do escopo acadêmico.
+
+---
 
 ## Como executar
 
-No terminal, na pasta do projeto:
+**Pré-requisitos:** Node.js e npm instalados.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abra o endereço local informado pelo Vite (normalmente `http://localhost:5173`). Para testar a compilação:
+Abra o endereço apresentado no terminal pelo Vite, normalmente `http://localhost:5173`.
+
+Para verificar se o projeto compila:
 
 ```bash
 npm run build
 ```
 
-O OpenCode informou que a compilação foi bem-sucedida, mas a revisão posterior encontrou erros de sintaxe e inicialização. O usuário confirmou a tela vazia ao executar o projeto. Após as correções, repetir o build e os testes no navegador.
+> **Atenção:** o build não é suficiente para detectar todos os erros de execução. Depois dele, abra a página, pressione `F12`, confira a aba **Console** e teste os componentes e CTAs.
 
-## Registro contínuo de decisões
+## Checklist antes da entrega
 
-| Data | Decisão ou evento | Motivo | Situação |
-| --- | --- | --- | --- |
-| 21/10/2026 | Criar um produto fictício de organização financeira | Aproveitar uma necessidade real de organização financeira e entrega de planilha para atividade acadêmica | Definido |
-| 21/10/2026 | Priorizar a landing page com demonstração pequena | Atender ao escopo acadêmico sem construir um sistema financeiro completo | Definido |
-| 21/10/2026 | Usar identidade vermelha e Montserrat | Preferência visual do estudante | Definido |
-| 21/10/2026 | Incluir modo claro e escuro | Dar liberdade de visualização ao visitante | Definido |
-| 21/10/2026 | Adotar MVVM | Uma das arquiteturas exigidas pela atividade; boa divisão de responsabilidades | Definido |
-| 21/10/2026 | Nome de trabalho “Fluxa” | Representar o fluxo das movimentações financeiras | Provisório |
-| 21/10/2026 | Pesquisar Mobills e Organizze | Entender como soluções financeiras apresentam benefícios, demonstração, planos e FAQ | Pesquisa inicial feita |
-| 21/10/2026 | Gerar primeira versão usando OpenCode | Transformar o escopo definido em uma base funcional que possa ser analisada e modificada | Implementação relatada; falta validação manual |
-| 21/10/2026 | Oferecer Grátis e Pro fictícios | Representar a seção de oferta exigida sem implementar pagamentos | Proposta incluída na geração; falta revisão |
-| 21/10/2026 | Revisar e testar antes de entregar | Comprovar que o código e a UX funcionam, além do resumo da ferramenta de IA | Pendente |
-| 21/10/2026 | Investigar tela preta/vazia | Identificar causa real e evitar entrega de projeto não funcional | Problemas identificados; correção pendente |
-| 21/10/2026 | Solicitar ao OpenCode correções pontuais e testes reais | Preservar arquitetura e layout, corrigindo inicialização, sintaxe, Excel, IDs, temas e Git | Prompt de correção preparado |
+- [ ] A aplicação abre sem tela vazia e sem `ReferenceError` no console.
+- [ ] `npm run build` termina sem erros.
+- [ ] Todas as seções obrigatórias da landing page aparecem corretamente.
+- [ ] O CTA **Testar demonstração** leva à área interativa.
+- [ ] O menu e os demais CTAs possuem ações coerentes, reais ou simuladas.
+- [ ] O modo claro/escuro muda a aparência e preserva a preferência após atualizar a página.
+- [ ] É possível cadastrar uma entrada e uma saída.
+- [ ] O saldo corresponde ao cálculo de entradas menos saídas.
+- [ ] Exclusão, validações e persistência local funcionam como esperado.
+- [ ] A exportação gera um `.xlsx` válido, com abas **Movimentações** e **Resumo**.
+- [ ] O FAQ expande e recolhe as respostas.
+- [ ] A interface se adapta a telas menores sem transbordamento.
+- [ ] O repositório público contém os arquivos do projeto e o README atualizado.
+- [ ] O(s) integrante(s) e o modelo de IA usado no OpenCode foram preenchidos neste documento.
 
-## Checklist de validação manual
+## Considerações finais
 
-- [ ] Executar `npm install`, `npm run dev` e `npm run build` no projeto real.
-- [ ] Verificar visualmente todas as seções obrigatórias da landing page.
-- [ ] Testar o CTA principal e todos os demais botões e links.
-- [ ] Verificar layout no desktop e em largura de celular (sem transbordamento horizontal).
-- [ ] Trocar tema, recarregar a página e verificar a persistência.
-- [ ] Cadastrar uma entrada e uma saída e validar os cálculos dos três indicadores.
-- [ ] Testar campos vazios, valor zero, valor inválido e exclusão de movimentações.
-- [ ] Recarregar a página e confirmar a persistência dos dados da demonstração.
-- [ ] Gerar e abrir o arquivo `.xlsx`; conferir as abas “Movimentações” e “Resumo” e os valores.
-- [ ] Testar reinício da demonstração e distinguir dados fictícios dos dados adicionados.
-- [ ] Conferir se a implementação segue MVVM, sem regras financeiras concentradas nas Views.
-- [ ] Revisar o README com o nome dos integrantes, modelo utilizado no OpenCode, mudanças reais, erros e aprendizados.
-- [ ] Publicar em repositório público e verificar se o link funciona sem autenticação.
-
-## Aviso
-
-Este é um **protótipo acadêmico** de um produto fictício. Dados, preços e depoimentos são ilustrativos. Não há conexão com bancos, processamento de pagamentos nem armazenamento em servidor.
+O Fluxa é um **protótipo fictício criado para fins acadêmicos**. Os depoimentos, preços, planos e registros exemplificativos não representam um serviço comercial real. Não há conexão com instituições financeiras, autenticação, pagamentos ou armazenamento de dados em servidor.
