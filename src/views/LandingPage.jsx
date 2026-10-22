@@ -1,40 +1,49 @@
-/*
- * LandingPage.jsx - View: composição da landing page.
- * Esta é a "View" do MVVM: orquestra todos os componentes UI,
- * fornece navegação por âncoras e rendered estrutura da página.
- * Não contém regras financeiras - apenas UI e navegação.
- * Importa o ViewModel de tema e usa o FinanceDemo para a demonstração.
- */
+import { useRef, useState } from 'react'
+import { useThemeViewModel } from '../viewmodels/useThemeViewModel.js'
+import Header from '../components/Header/Header.jsx'
+import Hero from '../components/Hero/Hero.jsx'
+import Benefits from '../components/Benefits/Benefits.jsx'
+import ProductPreview from '../components/ProductPreview/ProductPreview.jsx'
+import HowItWorks from '../components/HowItWorks/HowItWorks.jsx'
+import Testimonials from '../components/Testimonials/Testimonials.jsx'
+import Pricing from '../components/Pricing/Pricing.jsx'
+import Faq from '../components/Faq/Faq.jsx'
+import FinanceDemo from '../components/FinanceDemo/FinanceDemo.jsx'
+import Footer from '../components/Footer/Footer.jsx'
+import styles from './LandingPage.module.css'
 
-import { useState } from 'react'
-import { useThemeViewModel } from '../viewmodels/useThemeViewModel'
-import Header from '../components/Header/Header'
-import Hero from '../components/Hero/Hero'
-import Benefits from '../components/Benefits/Benefits'
-import ProductPreview from '../components/ProductPreview/ProductPreview'
-import HowItWorks from '../components/HowItWorks/HowItWorks'
-import Testimonials from '../components/Testimonials/Testimonials'
-import Pricing from '../components/Pricing/Pricing'
-import Faq from '../components/Faq/Faq'
-import FinanceDemo from '../components/FinanceDemo/FinanceDemo'
-import Footer from '../components/Footer/Footer'
-
+/** View (MVVM): composição da landing page, sem regras de negócio financeiras. */
 export default function LandingPage() {
-  const [theme, setDark, setLight, alternar] = useThemeViewModel('light')
+  const { theme, alternar } = useThemeViewModel()
   const [mostrarDemo, setMostrarDemo] = useState(false)
+  const demoRef = useRef(null)
+
+  function abrirDemo() {
+    setMostrarDemo(true)
+    // Após abrir a seção condicional, garante que o CTA leva ao formulário.
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => demoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+    })
+  }
 
   return (
-    <div className="app">
-      <Header theme={theme} alternar={alternar} />
-      <Hero onMostrarDemo={setMostrarDemo} />
-      <Benefits />
-      <ProductPreview />
-      <HowItWorks />
-      <Testimonials />
-      <Pricing />
-      <Faq />
-      <Footer />
-      {mostrarDemo && <FinanceDemo fecharDemo={() => setMostrarDemo(false)} theme={theme} alternar={alternar} />}
+    <div className={styles.page}>
+      <Header theme={theme} alternar={alternar} onTestar={abrirDemo} />
+      <main>
+        <Hero onMostrarDemo={abrirDemo} />
+        <Benefits />
+        <ProductPreview />
+        <HowItWorks onMostrarDemo={abrirDemo} />
+        <Testimonials />
+        <Pricing onMostrarDemo={abrirDemo} />
+        <Faq />
+        {mostrarDemo && (
+          <div ref={demoRef} id="demo" className={styles.demoContainer}>
+            <FinanceDemo onFechar={() => setMostrarDemo(false)} />
+          </div>
+        )}
+      </main>
+      <Footer onTestar={abrirDemo} />
     </div>
   )
 }

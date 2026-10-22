@@ -1,51 +1,11 @@
-/*
- * Testimonials.jsx - Prova social com depoimentos.
- * Apresenta 2 ou 3 depoimentos explicitamente identificados como fictícios,
- * pois é um exercício acadêmico. Cada depoimento tem o nome, perfil e
- * texto comentado.
- */
-
 import styles from './Testimonials.module.css'
-
+const testemunhos = [
+  { quote: 'Finalmente consigo enxergar quanto estou gastando sem abrir várias planilhas.', person: 'Ana M.', info: 'Estudante — depoimento fictício' },
+  { quote: 'A ideia de registrar e já ter o resumo pronto economizaria muito tempo na minha rotina.', person: 'Pedro L.', info: 'Freelancer — depoimento fictício' },
+  { quote: 'O botão de exportação é o detalhe que faria diferença na hora de organizar meus relatórios.', person: 'Mariana R.', info: 'Universitária — depoimento fictício' }
+]
 export default function Testimonials() {
-  return (
-    <section id="depoimentos" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles["heading-secondary"]}>Prova Social</h2>
-        <div className={styles.grid}>
-          <article className={styles.testimonial}>
-            <p className={styles.texto}>
-              "O Fluxa me ajudou a organizar minhas finanças estudantis de uma
-              forma tão simples que eu mal noto mais a diferença no meu dia a
-              dia. O visual do saldo me motiva a economizar mais."
-            </p>
-            <div className={styles.author}>
-              <span className={styles.nome}>Maria S., estudante</span>
-              <span className={styles.ficticio}>(fictício)</span>
-            </div>
-          </article>
-          <article className={styles.testimonial}>
-            <p className={styles.texto}>
-              "Achei muito prático exportar minhas movimentações para Excel. Consegu
-              usar o relatório no trabalho e nos estudos sem reentrar os dados."
-            </p>
-            <div className={styles.author}>
-              <span className={styles.nome}>João P., profissional</span>
-              <span className={styles.ficticio}>(fictício)</span>
-            </div>
-          </article>
-          <article className={styles.testimonial}>
-            <p className={styles.texto}>
-              "O dashboard é limpo e intuitivo. Conseguo ver minhas entradas e
-              saídas em um olhar só, sem complicação nenhuma."
-            </p>
-            <div className={styles.author}>
-              <span className={styles.nome}>Ana T., freelancer</span>
-              <span className={styles.ficticio}>(fictício)</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="depoimentos" className={`section ${styles.section}`}><div className="container"><span className="eyebrow">Prova social ilustrativa</span><h2 className="sectionTitle">Uma ideia que faz sentido no dia a dia.</h2><p className="sectionLead">Avaliações criadas para demonstrar a apresentação do produto. Não representam usuários reais.</p>
+    <div className={styles.grid}>{testemunhos.map((t, i) => <article key={t.person} className={styles.card}><div className={styles.stars} aria-label="5 estrelas fictícias">★★★★★</div><blockquote>“{t.quote}”</blockquote><div className={styles.person}><span aria-hidden="true">{['AM','PL','MR'][i]}</span><div><strong>{t.person}</strong><small>{t.info}</small></div></div></article>)}</div>
+  </div></section>
 }

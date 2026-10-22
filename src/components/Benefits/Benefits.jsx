@@ -1,52 +1,16 @@
-/*
- * Benefits.jsx - Benefícios e diferenciais.
- * Apresenta 4 cards com: organização, visualização de saldo,
- * simplicidade e exportação. Cada card tem ícone SVG criado em CSS
- * e um título/descrição.
-*/
-
 import styles from './Benefits.module.css'
-
+const benefits = [
+  { icon: '▦', title: 'Tudo em um só lugar', description: 'Registre entradas e saídas sem se perder entre anotações e planilhas.' },
+  { icon: '◉', title: 'Seu saldo em tempo real', description: 'Entenda quanto entrou, quanto saiu e quanto ainda tem disponível.' },
+  { icon: '✧', title: 'Simples de verdade', description: 'Uma experiência intuitiva para deixar a organização financeira mais leve.' },
+  { icon: '⇩', title: 'Excel em um clique', description: 'Exporte suas movimentações e o resumo financeiro para uma planilha .xlsx.' }
+]
 export default function Benefits() {
-  return (
-    <section id="beneficios" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles["heading-secondary"]}>Benefícios</h2>
-        <div className={styles.grid}>
-          <article className={styles.card}>
-            <div className={styles.icon} />
-            <h3>Organização</h3>
-            <p className={styles.desc}>
-              Registre todas as suas movimentações em categorias personalizadas
-              e tenha o controle total das suas finanças.
-            </p>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.icon} />
-            <h3>Visualização de saldo</h3>
-            <p className={styles.desc}>
-              Acompanhe seu saldo em tempo real, com diferenciação visual de
-                entradas e saídas.
-            </p>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.icon} />
-            <h3>Simplicidade</h3>
-            <p className={styles.desc}>
-              Interface limpa e intuitiva, sem complexidade desnecessária. Focar
-              no que realmente importa para o seu dia a dia.
-            </p>
-          </article>
-          <article className={styles.card}>
-            <div className={styles.icon} />
-            <h3>Exportação</h3>
-            <p className={styles.desc}>
-              Gere um arquivo Excel (.xlsx) real com suas movimentações e resumo
-              financeiro para usar como preferir.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  )
+  return <section id="beneficios" className="section"><div className="container">
+    <span className="eyebrow">Vantagens do Fluxa</span><h2 className="sectionTitle">Menos preocupação. Mais clareza.</h2>
+    <p className="sectionLead">Uma forma fácil de acompanhar seu dinheiro sem perder tempo com ferramentas complicadas.</p>
+    <div className={styles.grid}>{benefits.map(item => <article className={styles.item} key={item.title}>
+      <div className={styles.icon} aria-hidden="true">{item.icon}</div><h3>{item.title}</h3><p>{item.description}</p>
+    </article>)}</div>
+  </div></section>
 }

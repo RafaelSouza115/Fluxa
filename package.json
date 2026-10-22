@@ -1,31 +1,22 @@
 {
   "name": "fluxa",
-  "version": "1.0.0",
-  "description": "Landing page acadêmica do produto financeiro Fluxa - organizador pessoal no ritmo da vida, com demonstração financeira client-side, temas claro/escuro e exportação .xlsx",
-  "main": "index.js",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing page Fluxa com demonstração financeira client-side em React, CSS Modules e MVVM",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext .jsx,.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node --test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RafaelSouza115/Fluxa.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@eslint/js": "^8.57.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "eslint": "^8.57.0",
     "vite": "^5.2.0"
   }
 }

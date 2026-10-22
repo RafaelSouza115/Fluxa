@@ -1,52 +1,7 @@
-/*
- * Pricing.jsx - Oferta e preço.
- * Apresenta plano Demonstrativo Grátis (R$ 0) e plano Pro conceitual
-   (R$ 12,90/mês). Identifica que não há compra real.
-*/
-
 import styles from './Pricing.module.css'
-
-export default function Pricing() {
-  return (
-    <section id="preco" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles["heading-secondary"]}>Planos</h2>
-        <div className={styles.plans}>
-          <div className={styles.plan}>
-            <div className={styles.planHeader}>
-              <span className={styles.planName}>Plano Grátis</span>
-              <span className={styles.planTag}>Grátis</span>
-            </div>
-            <p className={styles.planPrice}>R$ 0,00 <span>/mês</span></p>
-            <ul className={styles.planList}>
-              <li>Registrar movimentações ilimitadas</li>
-              <li>Visualizar saldo e resumo</li>
-              <li>Exportar para Excel (.xlsx)</li>
-            </ul>
-            <button className={styles.btn} disabled>
-              Contratar
-            </button>
-          </div>
-          <div className={styles["plan-pro"]}>
-            <div className={styles.planHeader}>
-              <span className={styles.planName}>Plano Pro</span>
-              <span className={styles.planTag}>Conceitual</span>
-            </div>
-            <p className={styles.planPrice}>R$ 12,90 <span>/mês</span></p>
-            <ul className={styles.planList}>
-              <li>Tudo do plano Grátis</li>
-              <li>Categorias personalizadas</li>
-              <li>Backup automático na nuvem</li>
-              <li>Suporte prioritário</li>
-            </ul>
-            <button className={styles.btn}>Começar agora</button>
-            <p className={styles.planNote}>
-              Identificação apenas ilustrativa. Não há compra real ou processamento
-              de pagamento.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+export default function Pricing({ onMostrarDemo }) {
+  return <section id="precos" className="section"><div className={`container ${styles.wrapper}`}><div className={styles.intro}><span className="eyebrow">Oferta ilustrativa</span><h2 className="sectionTitle">Comece sem gastar nada.</h2><p className="sectionLead">Planos fictícios para apresentar a proposta do Fluxa. Esta atividade não vende assinaturas nem processa pagamentos.</p></div>
+    <div className={styles.cards}><article className={styles.card}><span className={styles.type}>DEMONSTRAÇÃO</span><h3>Grátis</h3><p className={styles.price}>R$ 0,00 <small>/mês</small></p><p className={styles.desc}>Conheça o Fluxa agora mesmo.</p><ul><li>✓ Cadastro de entradas e saídas</li><li>✓ Resumo financeiro</li><li>✓ Exportação para Excel</li><li>✓ Salvar dados no navegador</li></ul><button type="button" className="btnSecondary" onClick={onMostrarDemo}>Testar grátis ↗</button></article>
+    <article className={`${styles.card} ${styles.pro}`}><span className={styles.tag}>PROPOSTA FUTURA</span><span className={styles.type}>PLANO CONCEITUAL</span><h3>Pro</h3><p className={styles.price}>R$ 12,90 <small>/mês</small></p><p className={styles.desc}>Ideia de plano para uma futura versão.</p><ul><li>✓ Tudo do plano grátis</li><li>✓ Relatórios mais detalhados (proposta)</li><li>✓ Histórico avançado (proposta)</li><li>✓ Backup na nuvem (não disponível)</li></ul><button type="button" className="btnPrimary" onClick={onMostrarDemo}>Conhecer a demonstração ↗</button></article></div>
+  </div></section>
 }

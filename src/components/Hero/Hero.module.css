@@ -1,50 +1,30 @@
-/*
- * Hero.module.css - Estilos da seção hero.
- * Layout e tipografia da área principal da landing page.
-*/
-
-.section {
-  position: relative;
-  padding-top: 80px; /* espaço para header fixo */
-}
-
-.section-height {
-  min-height: 80vh;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.heading–primary {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  color: var(--color-text);
-}
-
-.heading-secondary {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--color-primary);
-}
-
-.text–lead {
-  font-size: 1.1rem;
-  color: var(--color-text-light);
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .heading–primary {
-    font-size: 2rem;
-  }
-  .heading-secondary {
-    font-size: 1.5rem;
-  }
-}
+.hero { padding: 95px 0 112px; background: radial-gradient(circle at 82% 25%, var(--brand-soft), transparent 45%), var(--bg); }
+.layout { display: grid; grid-template-columns: 1.03fr 1fr; align-items: center; gap: 65px; }
+.content h1 { font-weight: 900; font-size: clamp(2.7rem,4.6vw,4.85rem); letter-spacing: -.065em; line-height: 1.12; margin: 24px 0; }
+.content h1 span { color: var(--brand); }
+.content p { max-width: 560px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+.badge { display: inline-flex; align-items: center; gap: 10px; border-radius: 60px; background: var(--brand-soft); color: var(--brand); font-weight: 800; font-size: 10px; letter-spacing: .1em; padding: 11px 14px; }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 27px; }
+.actions button, .actions a { display: inline-flex; gap: 20px; align-items: center; }
+.trust { color: var(--muted); font-size: 11px; font-weight: 650; line-height: 2; }
+.check { color: var(--brand); font-size: 17px; } .separator { margin: 0 7px; }
+.art { position: relative; min-height: 470px; display: grid; align-items: center; }
+.glow { position: absolute; inset: 17px; border-radius: 45%; background: var(--brand-soft); filter: blur(6px); }
+.panel { position: relative; max-width: 480px; width: 100%; margin: 0 auto; padding: 27px 29px; border-radius: 27px; background: var(--surface); border: 1px solid var(--border); box-shadow: 0 30px 70px rgba(80, 12, 32, .14); transform: rotate(-2deg); }
+.panelHeading { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.panelLogo { background: var(--brand); color: white; display: grid; place-items: center; border-radius: 10px; width: 32px; height: 32px; }
+.panelHeading strong { font-size: 14px; }.panelDots { margin-left: auto; color: var(--muted); letter-spacing: 3px; }
+.small { font-size: 12px; color: var(--muted); font-weight: 650; margin: 0 0 8px; }
+.balance { font-size: clamp(27px, 4vw, 37px); font-weight: 900; letter-spacing: -.05em; margin: 0; }
+.chart { height: 155px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-end; justify-content: space-around; gap: 13px; padding: 20px 10px 0; margin-bottom: 20px; }
+.chart span { flex: 1; background: linear-gradient(180deg,#ff4468,#d7193f); border-radius: 8px 8px 0 0; opacity: .8; }
+.chart span:nth-child(even) { opacity: .3; }
+.panelGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.panelGrid div { background: var(--surface-alt); padding: 15px; border-radius: 13px; display: flex; flex-direction: column; gap: 7px; }
+.panelGrid span { color: var(--muted); font-size: 11px; }.panelGrid strong { font-size: 14px; }
+.float { position: absolute; right: -12px; bottom: 14px; z-index: 1; display: flex; align-items: center; gap: 12px; padding: 15px 20px; border-radius: 17px; box-shadow: var(--shadow); background: var(--surface); border: 1px solid var(--border); }
+.float > span { background: #def9ee; color: #15805a; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; }
+.float div { display: flex; flex-direction: column; gap: 4px; }.float strong { font-size: 12px; }.float small { color: var(--muted); font-size: 10px; }
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 22px; } .hero { padding: 70px 0; } .art { min-height: 400px; } }
+@media (max-width: 520px) { .art { min-height: 325px; } .panel { transform: none; padding: 19px; } .float { right: -2px; bottom: -7px; } .chart { height: 115px; } }

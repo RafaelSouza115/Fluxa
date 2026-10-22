@@ -1,53 +1,21 @@
-/*
- * useThemeViewModel.js - ViewModel: gerencia o tema (claro/escuro).
- * Responsável por: persistência no localStorage, detecção de prefers-color-scheme,
- * e fornecimento de funções de alternância para a interface.
- * Esta camada separa a lógica de tema da componente visual.
- */
+/** ViewModel (MVVM): um único estado de tema compartilhado pela landing page. */
+import { useCallback, useEffect, useState } from 'react'
 
-import { useState, useEffect, useCallback } from 'react'
+const KEY = 'fluxa-theme'
+function temaInicial() {
+  try {
+    const salvo = window.localStorage.getItem(KEY)
+    if (salvo === 'light' || salvo === 'dark') return salvo
+  } catch { /* armazenamento pode estar indisponível */ }
+  return typeof window !== 'undefined' && window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
 
-const THEME_KEY = 'fluxa-theme'
-
-// Verifica o tema salvo ou o preference do sistema
-const storedTheme = typeof localStorage !== 'undefined' ? localStorage.getItem(THEME_KEY) : null
-const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-
-// Lógica: primeiro verifica localStorage, depois o preference do sistema
-const initialTheme = storedTheme ? (storedTheme === 'dark' ? 'dark' : 'light') : prefersDark ? 'dark' : 'light'
-
-export function useThemeViewModel(initialTheme = 'light') {
-  const [theme, setTheme] = useState(initialTheme)
-
-  // Aplica o tema no elemento <html>
+export function useThemeViewModel() {
+  const [theme, setTheme] = useState(temaInicial)
   useEffect(() => {
-    const root = document.documentElement
-    if (theme === 'dark') {
-      root.classList.add('dark-theme')
-    } else {
-      root.classList.remove('dark-theme')
-    }
-    try {
-      localStorage.setItem(THEME_KEY, theme)
-    } catch (e) {
-      console.warn('Não foi possível salvar o tema no localStorage', e)
-    }
+    document.documentElement.dataset.theme = theme
+    try { window.localStorage.setItem(KEY, theme) } catch { /* sem persistência */ }
   }, [theme])
-
-  // Alterar para modo escuro
-  const paraDark = useCallback(() => {
-    setTheme('dark')
-  }, [])
-
-  // Alterar para modo claro
-  const paraLight = useCallback(() => {
-    setTheme('light')
-  }, [])
-
-  // Alternar entre claro e escuro
-  const alternar = useCallback(() => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
-  }, [])
-
-  return [theme, paraDark, paraLight, alternar]
+  const alternar = useCallback(() => setTheme(atual => atual === 'dark' ? 'light' : 'dark'), [])
+  return { theme, alternar }
 }

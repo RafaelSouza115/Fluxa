@@ -1,92 +1,13 @@
-/*
- * Faq.jsx - Perguntas frequenciais expansíveis.
- * Cada pergunta tem um botão de acionamento com aria-expanded e aria-controls.
-   As respostas são reveladas dinamicamente. Sobre registro, dados locais,
-   exportação e proposta fictícia.
-*/
-
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from './Faq.module.css'
-
+const perguntas = [
+  ['Preciso criar uma conta para usar?', 'Não. O Fluxa é um protótipo acadêmico, e a demonstração funciona no seu navegador, sem cadastro.'],
+  ['Onde ficam os dados que eu registrar?', 'Os registros ficam no localStorage do navegador usado. Eles não são enviados a servidores e podem ser apagados caso você limpe os dados do navegador.'],
+  ['Como funciona a exportação para Excel?', 'Na demonstração, clique em Exportar Excel. Um arquivo .xlsx será criado com as abas Movimentações e Resumo.'],
+  ['O modo escuro fica salvo?', 'Sim, se o navegador permitir o armazenamento local. A preferência será aplicada quando você abrir o Fluxa novamente.'],
+  ['Os planos e depoimentos são reais?', 'Não. Os planos, preços e depoimentos são fictícios, criados para cumprir a apresentação da atividade. Não existe contratação nem cobrança.']
+]
 export default function Faq() {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <section id="faq" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles["heading-secondary"]}>Perguntas Frequentes</h2>
-        <div className={styles.faq}>
-          <div className={styles.faqItem}>
-            <button
-              className={styles.faqButton}
-              aria-expanded={open}
-              aria-controls="faq1"
-              onClick={() => setOpen(!open)}
-            >
-              Como registro minhas movimentações?
-            </button>
-            <div id="faq1" className={styles.faqContent}>
-              <p>
-                Basta clicar no botão na seção de demonstração, preencher o
-                formulário com descrição, tipo (entrada/saída), categoria e valor.
-                As transações são salvas no seu navegador.
-              </p>
-            </div>
-          </div>
-          <div className={styles.faqItem}>
-            <button
-              className={styles.faqButton}
-              aria-expanded={!open}
-              aria-controls="faq2"
-              onClick={() => setOpen(!open)}
-            >
-              Onde são salvos os meus dados?
-            </button>
-            <div id="faq2" className={styles.faqContent}>
-              <p>
-                As transações são salvas no localStorage do seu navegador. Isso
-                significa que seus dados ficam no seu dispositivo e não são
-                sincronizados com servidor ou backup na nuvem.
-              </p>
-            </div>
-          </div>
-          <div className={styles.faqItem}>
-            <button
-              className={styles.faqButton}
-              aria-expanded={open}
-              aria-controls="faq3"
-              onClick={() => setOpen(!open)}
-            >
-              Como funciona a exportação para Excel?
-            </button>
-            <div id="faq3" className={styles.faqContent}>
-              <p>
-                Na seção de demonstração, clique no botão "Exportar Excel". O
-                sistema gerará um arquivo .xlsx real no seu navegador com duas
-                abas: "Movimentações" (seus registros) e "Resumo" (entradas,
-                saídas e saldo).
-              </p>
-            </div>
-          </div>
-          <div className={styles.faqItem}>
-            <button
-              className={styles.faqButton}
-              aria-expanded={!open}
-              aria-controls="faq4"
-              onClick={() => setOpen(!open)}
-            >
-              O Fluxa é um aplicativo financeiro real?
-            </button>
-            <div id="faq4" className={styles.faqContent}>
-              <p>
-                Não. O Fluxa é um produto fictício criado para um exercício
-                acadêmico. Não há conexão com bancos, processamento de pagamentos
-                ou dados reais. Tudo ocorre exclusivamente no seu navegador.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  const [aberto, setAberto] = useState(null)
+  return <section id="faq" className={`section ${styles.section}`}><div className={`container ${styles.layout}`}><div><span className="eyebrow">Dúvidas frequentes</span><h2 className="sectionTitle">Perguntas? Temos respostas.</h2><p className="sectionLead">Entenda como funciona a demonstração do Fluxa.</p></div><div className={styles.items}>{perguntas.map(([pergunta, resposta], i) => <div key={pergunta} className={styles.item}><h3><button type="button" aria-expanded={aberto === i} aria-controls={`resposta-${i}`} onClick={() => setAberto(anterior => anterior === i ? null : i)}>{pergunta}<span aria-hidden="true">{aberto === i ? '−' : '+'}</span></button></h3><div id={`resposta-${i}`} hidden={aberto !== i} className={styles.answer}><p>{resposta}</p></div></div>)}</div></div></section>
 }

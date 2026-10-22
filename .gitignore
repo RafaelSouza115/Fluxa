@@ -1,13 +1,8 @@
-# Dependências
 node_modules/
 dist/
-
-# Arquivos de ambiente
 .env
-.env.local
-
-# Arquivos de build do Vite
-*.cache/
-
-# Sistema operacional
+.env.*
+!.env.example
+.vite/
 .DS_Store
+*.log

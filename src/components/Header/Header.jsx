@@ -1,36 +1,21 @@
-/*
- * Header.jsx - Componente de cabeçalho.
- * Contém logotipo textual, navegação entre seções por âncoras e
- * botão de alternância de tema.
- * Recebe tema e funções de alternância do ViewModel.
-*/
-
 import styles from './Header.module.css'
 
-export default function Header({ theme, alternar }) {
+export default function Header({ theme, alternar, onTestar }) {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <span>Fluxa</span>
-      </div>
-      <nav className={styles.nav}>
-        <ul>
-          <li><a href="#hero" className={styles.link}>Início</a></li>
-          <li><a href="#beneficios" className={styles.link}>Benefícios</a></li>
-          <li><a href="#produto" className={styles.link}>Produto</a></li>
-          <li><a href="#como" className={styles.link}>Como funciona</a></li>
-          <li><a href="#depoimentos" className={styles.link}>Depoimentos</a></li>
-          <li><a href="#faq" className={styles.link}>FAQ</a></li>
-        </ul>
-      </nav>
-      <div className={styles.actions}>
-        <button
-          className={styles.btn}
-          onClick={alternar}
-          aria-label="Alternar modo tema"
-        >
-          {theme === 'dark' ? 'Modo Claro' : 'Modo Escuro'}
-        </button>
+      <div className={`container ${styles.inner}`}>
+        <a href="#inicio" className={styles.brand} aria-label="Fluxa — início">
+          <span className={styles.logo} aria-hidden="true">↗</span><span>fluxa<span className={styles.dot}>.</span></span>
+        </a>
+        <nav className={styles.nav} aria-label="Navegação principal">
+          <a href="#beneficios">Benefícios</a><a href="#produto">Produto</a><a href="#como">Como funciona</a><a href="#precos">Planos</a><a href="#faq">FAQ</a>
+        </nav>
+        <div className={styles.actions}>
+          <button type="button" className={styles.themeButton} onClick={alternar} aria-label={`Ativar modo ${theme === 'dark' ? 'claro' : 'escuro'}`} title="Alternar tema">
+            <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
+          </button>
+          <button type="button" onClick={onTestar} className={`btnPrimary ${styles.cta}`}>Testar grátis <span aria-hidden="true">↗</span></button>
+        </div>
       </div>
     </header>
   )

@@ -1,54 +1,13 @@
-/*
- * Header.module.css - Estilos do cabeçalho.
- * Estilização do logotipo, navegação e botão de tema.
-*/
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background: var(--color-bg-light);
-  border-bottom: 1px solid var(--color-bg-subtle);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 100;
-}
-
-.logo span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-.nav ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav a {
-  font-size: 0.875rem;
-  color: var(--color-text);
-  transition: var(--transition);
-}
-
-.nav a:hover {
-  color: var(--color-primary);
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-@media (max-width: 768px) {
-  .nav ul {
-    display: none;
-  }
-  .actions {
-    margin-left: 1rem;
-  }
-}
+.header { position: sticky; top: 0; z-index: 20; background: var(--surface); border-bottom: 1px solid var(--border); }
+.inner { min-height: 82px; display: flex; align-items: center; gap: 32px; justify-content: space-between; }
+.brand { font-size: 26px; font-weight: 900; letter-spacing: -.075em; display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.logo { width: 33px; height: 33px; background: #d7193f; color: white; border-radius: 11px; font-size: 22px; display: grid; place-items: center; line-height: 1; }
+.dot { color: var(--brand); }
+.nav { display: flex; gap: clamp(10px,2vw,26px); align-items: center; }
+.nav a { color: var(--muted); font-weight: 650; font-size: 12px; white-space: nowrap; }
+.nav a:hover { color: var(--brand); }
+.actions { display: flex; align-items: center; gap: 12px; }
+.themeButton { border: 1px solid var(--border); background: var(--surface-alt); color: var(--text); font-size: 22px; width: 42px; height: 42px; border-radius: 12px; }
+.cta { padding: 12px 16px; font-size: 12px; white-space: nowrap; }
+@media (max-width: 960px) { .nav { display: none; } }
+@media (max-width: 420px) { .inner { gap: 8px; min-height: 68px; } .brand { font-size: 24px; } .cta { padding: 12px; } }
