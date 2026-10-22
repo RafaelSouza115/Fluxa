@@ -6,14 +6,13 @@
 
 ## Integrantes
 
-- **[Nome do integrante]**
-- **[Nome do segundo integrante, se houver]**
+- **Rafael Souza**
 
 ## Sobre o produto
 
 O **Fluxa** é a ideia de um organizador financeiro pessoal, voltado especialmente a estudantes e pessoas que desejam ter mais clareza sobre suas entradas e saídas. O objetivo é registrar movimentações, acompanhar totais e saldo e obter uma planilha Excel que pode auxiliar na organização de informações financeiras em atividades acadêmicas, incluindo uma atividade de sócio.
 
-**Proposta de valor:** *“Suas finanças no ritmo da sua vida.”*
+**Proposta de valor:** _“Suas finanças no ritmo da sua vida.”_
 
 O trabalho é uma **landing page de produto fictício** com uma demonstração funcional, não um sistema bancário. Não tem backend, login, banco de dados, pagamento ou integração com bancos. Todos os registros são locais ao navegador.
 
@@ -33,11 +32,11 @@ O trabalho é uma **landing page de produto fictício** com uma demonstração f
 
 A arquitetura **MVVM (Model–View–ViewModel)** foi escolhida por ser uma das opções exigidas na atividade e por separar os cálculos financeiros da interface, sem acrescentar um backend desnecessário.
 
-| Camada | Arquivos principais | Responsabilidade |
-| --- | --- | --- |
-| Model | `src/models/financeModel.js`, `mockTransactions.js` | Cálculos, validação, formatação e dados fictícios |
+| Camada    | Arquivos principais                                             | Responsabilidade                                               |
+| --------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
+| Model     | `src/models/financeModel.js`, `mockTransactions.js`             | Cálculos, validação, formatação e dados fictícios              |
 | ViewModel | `src/viewmodels/useFinanceViewModel.js`, `useThemeViewModel.js` | Estado React, persistência local, operações, exportação e tema |
-| View | `src/views/LandingPage.jsx`, `src/components/` | Apresentação da landing page e demonstração financeira |
+| View      | `src/views/LandingPage.jsx`, `src/components/`                  | Apresentação da landing page e demonstração financeira         |
 
 Cada componente possui o próprio `.jsx` e `.module.css`; `styles/global.css` contém apenas estilos de base, variáveis de temas e utilitários globais.
 
@@ -85,13 +84,13 @@ As páginas do [Mobills](https://www.mobills.com.br/) e [Organizze](https://www.
 
 ### 5. Evolução da solução
 
-| Etapa | O que ocorreu | Aprendizado / decisão |
-| --- | --- | --- |
-| V0 — Planejamento | Escolha de produto financeiro, escopo de landing page, cor, fonte e MVVM | Manter a atividade 100% client-side |
-| V1 — Primeira geração | OpenCode produziu a implementação inicial | Código gerado precisa ser testado, não apenas descrito |
-| V2 — Primeira auditoria | Erros em arquivos de entrada, JavaScript/JSX, Excel, IDs e temas foram investigados | Revisar dependências entre arquivos e execução no navegador |
-| V3 — Tela vazia | Console indicou vários erros `secondary is not defined` | Classes de CSS Modules com hífen exigem acesso correto |
-| V4 — Outra falha | Console indicou `destacado is not defined` no ProductPreview | Corrigir padrões repetidos no projeto inteiro, não um erro isolado |
+| Etapa                              | O que ocorreu                                                                                                                                          | Aprendizado / decisão                                                               |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| V0 — Planejamento                  | Escolha de produto financeiro, escopo de landing page, cor, fonte e MVVM                                                                               | Manter a atividade 100% client-side                                                 |
+| V1 — Primeira geração              | OpenCode produziu a implementação inicial                                                                                                              | Código gerado precisa ser testado, não apenas descrito                              |
+| V2 — Primeira auditoria            | Erros em arquivos de entrada, JavaScript/JSX, Excel, IDs e temas foram investigados                                                                    | Revisar dependências entre arquivos e execução no navegador                         |
+| V3 — Tela vazia                    | Console indicou vários erros `secondary is not defined`                                                                                                | Classes de CSS Modules com hífen exigem acesso correto                              |
+| V4 — Outra falha                   | Console indicou `destacado is not defined` no ProductPreview                                                                                           | Corrigir padrões repetidos no projeto inteiro, não um erro isolado                  |
 | V5 — Recuperação corretiva (22/10) | Versão reconstruída a partir da estrutura e requisitos do repositório público, com componentes e lógica separados, novos testes e estilos padronizados | Preservar a proposta, simplificar a interface do código e validar antes de entregar |
 
 #### Correções técnicas aplicadas na V5
